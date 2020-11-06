@@ -1,0 +1,37 @@
+target/
+ui/.tmp
+ui/node
+ui/node_modules
+ui/src/main/resources/static/dist
+ui/src/main/resources/static/bower
+generated-css/
+venv/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+### VS Code ###
+.vscode/
+
+### Mac file
+.DS_Store

@@ -1,0 +1,31 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        averageProcessor-in-0:
+          destination: weather-data
+        averageProcessor-out-0:
+          destination: weather-agg
+        alertsProcessor-in-0:
+          destination: weather-agg
+      kafka:
+        binder:
+          brokers: localhost:9092
+        streams:
+          binder:
+            configuration:
+              processing:
+                guarantee: exactly_once
+              default:
+                timestamp:
+                  extractor: io.sergeyev.kafkastreams.streams.WeatherTimestampExtractor
+            functions:
+              averageProcessor:
+                applicationId: averageProcessor-v1
+              alertsProcessor:
+                applicationId: alertsProcessor-v1
+    function:
+      definition: averageProcessor;alertsProcessor;
+logging:
+  level:
+    org.apache.kafka.streams: DEBUG
